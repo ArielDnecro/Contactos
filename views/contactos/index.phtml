@@ -1,0 +1,64 @@
+<h2>Lista de contactos</h2>
+
+<div>
+	
+		<a href="<?php echo APP_URL.'contactos/agregar'; ?>">
+			<button class="btn btn-sm btn-success">
+				<i class="fa fa-plus"></i>
+				Nuevo contacto
+			</button>
+		</a>
+	
+	<div style="overflow-x:auto;">
+		<table class="table table-sm mg-top-10">
+			<thead class="thead-light">
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Correo</th>
+					<th>fecha</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<?php foreach ($this->contactos as $contacto): ?>
+						<tr>
+							<td>
+								<?php  echo $contacto["CO"]['id'];?>							
+							</td>
+							<td>
+								<?php  echo $contacto["CO"]['nombre'];?>							
+							</td>
+							
+							<td>
+								<?php  echo $contacto["CO"]['correo_electronico'];?>							
+							</td>
+							<td>								
+								<?php  
+									$date = date_create($contacto["CO"]['fecha_alta']);
+									echo date_format($date,'d/m/Y');
+								?>								
+							</td>
+							
+							<td>
+								<a href="<?php echo APP_URL.'contactos/editar/'.$contacto["CO"]["id"]; ?>">
+									<button class="btn btn-sm btn-primary">
+										<i class="fa fa-pen"></i>
+									</button>
+								</a>
+				                 
+				                 <a href="<?php echo APP_URL.'contactos/eliminar/'.$contacto["CO"]["id"]; ?>"  class="confirmation">
+									<button class="btn btn-sm btn-danger">
+										<i class="fa fa-trash"></i>
+									</button>
+								</a>
+								
+							</td>
+						</tr>
+					<?php endforeach ?>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

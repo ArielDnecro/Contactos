@@ -1,0 +1,65 @@
+
+<h2>Editar Contactos</h2>
+<div class="container">
+	<div>		
+		<form action="<?php echo APP_URL."contactos/editar"; ?>" method="POST">
+			<input type="hidden" name="id" value="<?php echo $this->contacto["id"]; ?>">
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" name="nombre" class="form-control" value="<?php echo $this->contacto["nombre"]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="apellidos">Apellidos</label>
+				<input type="text" name="apellidos" class="form-control" value="<?php echo $this->contacto["apellidos"]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="categoria">Categoria</label>
+				<select name="categoria" class="form-control">
+					<?php foreach ($this->categorias as $categoria) { 
+							if ($this->contacto["categoria_id"]==$categoria["id"]) { ?>
+								<option selected value="<?php echo $categoria["id"]; ?>">
+								<?php echo $categoria["nombre"]; ?></option>			
+					<?php	}else{	?>
+								<option value="<?php echo $categoria["id"]; ?>">
+								<?php echo $categoria["nombre"]; ?></option>
+					<?php 	} }	?>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="tipocliente">Tipo</label>
+				<select name="tipocliente" class="form-control">
+					<?php foreach ($this->tiposclientes as $tipocliente) { 
+							if ($this->contacto["tipo_id"]==$tipocliente["id"]) { ?>
+								<option selected value="<?php echo $tipocliente["id"]; ?>">
+								<?php echo $tipocliente["nombre"]; ?></option>			
+					<?php	}else{	?>
+								<option value="<?php echo $tipocliente["id"]; ?>">
+								<?php echo $tipocliente["nombre"]; ?></option>
+					<?php 	} }	?>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="telefono">telefono</label>
+				<input type="text" name="telefono" class="form-control" value="<?php echo $this->contacto["telefono"]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="celular">celular</label>
+				<input type="text" name="celular" class="form-control" value="<?php echo $this->contacto["celular"]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="correo">Correo</label>
+				<input type="email" name="correo" class="form-control" value="<?php echo $this->contacto["correo_electronico"]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="fecha">Fecha</label>
+				<input type="date" name="fecha" class="form-control" value="<?php echo $this->contacto["fecha_alta"]; ?>">
+			</div>
+			
+			
+			<div class="form-group">
+				
+			</div>
+			<button type="submit" class="btn btn-primary mg-top-10">Guardar</button>
+		</form>
+	</div>
+</div>

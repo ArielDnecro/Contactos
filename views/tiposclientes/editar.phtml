@@ -1,0 +1,16 @@
+<h2>Editar el tipo de cliente</h2>
+
+<div class="container">
+	<div>
+		<form action="<?php echo APP_URL.'tiposclientes/editar'; ?>" method="POST">
+			<input type="hidden" value="<?php echo $this->tipocliente['id']; ?>" name="id">
+			<label for="nombre">Nombre</label>
+			<div class="input-group">			
+				<input type="text" name="nombre" class="form-control" value="<?php echo $this->tipocliente['nombre']; ?>">
+				<div class="input-group-append">
+					<button class="btn btn-sm btn-success" action="submit">Editar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

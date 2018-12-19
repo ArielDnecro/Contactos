@@ -1,0 +1,51 @@
+<h2>Agregar contacto</h2>
+
+<div class="container">
+	<div>
+		<form class="form form-group" action="<?php echo APP_URL."contactos/agregar"; ?>" method="POST">
+			
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" name="nombre" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="apellidos">Apellidos</label>
+				<input type="text" name="apellidos" class="form-control">
+			</div>
+
+            <div>
+            	<label for="categoria">Categoria</label>
+				<select name="categoria" class="form-control">
+					<?php 
+						foreach ($this->categorias as $categoria) {
+							echo "<option value=".$categoria[0].">".$categoria[1]."</option>";
+						}
+					?>
+				</select>
+				<label for="tipocliente">Tipo</label>
+				<select name="tipocliente" class="form-control">
+					<?php 
+						foreach ($this->tiposclientes as $tipocliente) {
+							echo "<option value=".$tipocliente[0].">".$tipocliente[1]."</option>";
+						}
+					?>
+				</select>
+
+				<label for="telefono">Telefono</label>
+				<input type="text" name="telefono" class="form-control">
+
+				<label for="celular">Celular</label>
+				<input type="text" name="celular" class="form-control">
+
+				<label for="correo">Correo</label>
+				<input type="email" name="correo" class="form-control">
+
+				<label for="fecha">Fecha</label>
+				<input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>" class="form-control">
+				
+		    </div>
+			<button type="submit" class="btn btn-primary form-control">Guardar</button>
+		</form>
+	</div>
+</div>

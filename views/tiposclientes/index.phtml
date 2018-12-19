@@ -1,0 +1,35 @@
+<h3>Listado de tipos de clientes</h3>
+<div>
+	<a href="<?php echo APP_URL.'tiposclientes/agregar'; ?>">
+		<button class="btn btn-sm btn-success">Agregar</button>
+	</a>
+	<table class="table table-sm mg-top-10">
+		<thead class="thead-light">
+			<tr>
+				<th>Id</th>
+				<th>Descripcion</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>			
+			<?php foreach ($this->tiposclientes as $tipocliente): ?>
+				<tr>
+					<td><?php echo $tipocliente["id"]; ?></td>
+					<td><?php echo $tipocliente["nombre"]; ?></td>
+					<td>
+						<a href="<?php echo APP_URL.'tiposclientes/editar/'.$tipocliente["id"]; ?>">
+							<button class="btn btn-sm btn-primary">
+								<i class="fa fa-pen"></i>
+							</button>
+						</a>
+						<a href="<?php echo	APP_URL.'tiposclientes/eliminar/'.$tipocliente["id"]; ?>" class="confirmation">
+							<button class="btn btn-sm btn-danger">
+								<i class="fa fa-trash"></i>
+							</button>
+						</a>
+					</td>
+				</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+</div>
